@@ -42,8 +42,13 @@
       <term name="original-work-published">originally published as</term>
       <term form="short" name="paper-conference">paper</term>
       <term form="verb-short" name="conductor">cond. by</term>
+      <term form="short" name="conductor">cond.</term>
       <term form="verb-short" name="set-design">set by</term>
+      <term form="short" name="set-design">set</term>
       <term form="verb-short" name="lighting-design">ld. by</term>
+      <term form="short" name="lighting-design">ld.</term>
+      <term form="verb" name="playwright">by</term>
+      <term form="verb-short" name="playwright">by</term>
     </terms>
   </locale>
   <!-- Contents:
@@ -877,6 +882,14 @@
               </else-if>
             </choose>
             <text macro="title"/>
+            <choose>
+              <if type="motion_picture">
+                <names variable="playwright">
+                  <label form="verb" suffix=" "/>
+                  <name initialize="false"/>
+                </names>
+              </if>
+            </choose>
           </group>
           <text macro="description"/>
           <text macro="identifier"/>
@@ -3476,7 +3489,11 @@
             <text macro="source-locator-subsequent"/>
           </if>
           <else>
-            <text macro="author-note"/>
+            <choose>
+              <if match="none" type="motion_picture">
+                <text macro="author-note"/>
+              </if>
+            </choose>
             <text macro="title-and-source"/>
           </else>
         </choose>
@@ -3484,11 +3501,45 @@
     </layout>
   </citation>
   <!-- Bibliography -->
+  <macro name="title-and-source-motion-picture-bib">
+    <group delimiter=" ">
+      <group delimiter=", ">
+        <group delimiter=" ">
+          <text macro="title"/>
+          <names variable="playwright">
+            <label form="verb" suffix=" "/>
+            <name initialize="false"/>
+          </names>
+        </group>
+        <text macro="description"/>
+        <names variable="conductor">
+          <name initialize="false"/>
+          <label form="short" prefix=" (" suffix=")"/>
+        </names>
+        <names variable="set-design">
+          <name initialize="false"/>
+          <label form="short" prefix=" (" suffix=")"/>
+        </names>
+        <names variable="lighting-design">
+          <name initialize="false"/>
+          <label form="short" prefix=" (" suffix=")"/>
+        </names>
+      </group>
+      <text macro="source-monographic-publication-bracketed"/>
+    </group>
+  </macro>
   <macro name="bibliography-notes">
     <group delimiter=". ">
       <group delimiter=", ">
         <text macro="author-bib"/>
-        <text macro="title-and-source"/>
+        <choose>
+          <if type="motion_picture">
+            <text macro="title-and-source-motion-picture-bib"/>
+          </if>
+          <else>
+            <text macro="title-and-source"/>
+          </else>
+        </choose>
       </group>
       <text variable="references"/>
     </group>
