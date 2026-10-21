@@ -6,14 +6,19 @@
     <title-short>MHRA 4 (notes) (performance)</title-short>
     <id>http://www.zotero.org/styles/mhra-notes-aa-edit</id>
     <link href="http://www.zotero.org/styles/mhra-notes-aa-edit" rel="self"/>
+    <!-- AA: the upstream style this file is adapted from -->
+    <link href="http://www.zotero.org/styles/mhra-notes" rel="template"/>
     <link href="https://www.mhra.org.uk/style/" rel="documentation"/>
     <link href="https://zotero.org/groups/2205533/collections/D9MVMAFF" rel="documentation"/>
     <author>
       <name>Andrew Dunning</name>
       <uri>https://orcid.org/0000-0003-0464-5036</uri>
+    </author>
+    <!-- AA: live-performance amendments (see 'Amendment' comment below the contents list) -->
+    <contributor>
       <name>Anthony Arblaster</name>
       <uri>https://orcid.org/0009-0005-0404-0645</uri>
-    </author>
+    </contributor>
     <category citation-format="note"/>
     <category field="generic-base"/>
     <category field="history"/>
@@ -22,8 +27,8 @@
     <category field="literature"/>
     <category field="philosophy"/>
     <category field="theology"/>
-    <summary>MHRA source citations, notes system</summary>
-    <updated>2026-10-18T10:59:00+00:00</updated>
+    <summary>MHRA source citations, notes system, amended to cite live performance (theatre, opera, dance) via the Film item type</summary>
+    <updated>2026-10-21T12:00:00+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="en">
@@ -44,6 +49,9 @@
       <term name="original-work-published">originally published as</term>
       <term form="short" name="paper-conference">paper</term>
       <term form="verb-short" name="conductor">cond. by</term>
+      <!-- AA: live-performance terms.
+           `verb-short` labels names in notes ("set by Lez Brotherston");
+           `short` labels names in the bibliography ("Lez Brotherston (set)"). -->
       <term form="short" name="conductor">cond.</term>
       <term form="verb-short" name="set-design">set by</term>
       <term form="short" name="set-design">set</term>
@@ -51,8 +59,12 @@
       <term form="short" name="lighting-design">ld.</term>
       <term form="verb" name="playwright">by</term>
       <term form="verb-short" name="playwright">by</term>
-      <term form="verb" name="choreographer">choreo. by</term>
-      <term form="verb-short" name="choreographer">choreo.</term>
+      <!-- AA: choreographer is treated like director: "choreo. by" in notes, "(choreo.)" in the bibliography -->
+      <term form="verb" name="choreographer">choreographed by</term>
+      <term form="verb-short" name="choreographer">choreo. by</term>
+      <term form="short" name="choreographer">choreo.</term>
+      <!-- AA: `choreographer-inverted` is the bibliography (surname-first) form of `choreographer`; see `author-bib` -->
+      <term form="short" name="choreographer-inverted">choreo.</term>
     </terms>
   </locale>
   <!-- Contents:
@@ -100,12 +112,28 @@
        : bill hearing legal_case legislation regulation treaty
   -->
 
-  <!-- Amendment:
-  This is a amended version of MHRA 4th Edition, to make adjustments to support
-  changes for disambiguation of live performance. 
+  <!-- Amendment (Anthony Arblaster):
+       This is an amended version of MHRA 4th Edition that supports the citation of
+       live performance. Productions are entered as the Zotero 'Film' item type
+       (CSL `motion_picture`), and the key creatives are listed to disambiguate
+       different productions of the same work (plays, opera and dance).
 
-  It lists key creatives when using 'film' as an option. It builds out the extra terms
-  to reference the key creatives in plays, opera and dance.
+       New variables, entered in Zotero's Extra field as `variable: value`:
+         playwright, choreographer, choreographer-inverted, conductor,
+         set-design, lighting-design
+
+       Zotero field mappings: Director -> `director`, Distributor -> `publisher`
+       (producer), Genre -> `genre`, Place -> `publisher-place` (venue, city),
+       Date -> `issued` (first performance).
+
+       Note on names in Extra: only standard CSL name variables (e.g. `director`)
+       accept the two-field `Surname || Forename` syntax. citeproc-js renders any
+       other name variable (all of the above) as a single literal name exactly as
+       typed, so it can never be inverted. MHRA puts the first name surname-first in
+       the bibliography only, so the choreographer, who stands in the author position
+       like a director, needs a second, inverted copy: `choreographer-inverted`.
+
+       Every amended section is marked with a comment beginning "AA:".
   -->
   <!-- Variable labels -->
   <macro name="label-chapter-number">
@@ -365,20 +393,24 @@
             </if>
           </choose>
           <names variable="director"/>
-          <choose>
-            <if type="motion_picture">
-              <names variable="choreographer">
-                <name initialize="false" name-as-sort-order="first"/>
-                <label form="short" prefix=" (" suffix=")"/>
-              </names>
-            </if>
-          </choose>
+          <!-- AA: with no director, the choreographer takes the author position: "Bourne, Matthew (choreo.)".
+               `choreographer-inverted` comes first because a literal `choreographer` name cannot be inverted;
+               `choreographer` is the fallback ("Matthew Bourne (choreo.)") if it is missing.
+               Unlike `director`, these cannot be empty `names` inheriting the `name` and `label` above:
+               citeproc-js renders nothing for an empty `names` with a non-standard variable. -->
+          <names variable="choreographer-inverted">
+            <name initialize="false" name-as-sort-order="first"/>
+            <label form="short" prefix=" (" suffix=")"/>
+          </names>
+          <names variable="choreographer">
+            <name initialize="false" name-as-sort-order="first"/>
+            <label form="short" prefix=" (" suffix=")"/>
+          </names>
           <names variable="producer"/>
           <names variable="executive-producer"/>
           <names variable="series-creator"/>
           <names variable="editorial-director"/>
           <names variable="compiler"/>
-          <names variable="choreographer"/>
           <choose>
             <if match="any" type="event performance speech">
               <names variable="chair"/>
@@ -499,12 +531,13 @@
               </if>
             </choose>
             <names variable="director"/>
+            <!-- AA: choreographer treated like director -->
+            <names variable="choreographer"/>
             <names variable="producer"/>
             <names variable="executive-producer"/>
             <names variable="series-creator"/>
             <names variable="editorial-director"/>
             <names variable="compiler"/>
-            <names variable="choreographer"/>
             <choose>
               <if match="any" type="event performance speech">
                 <names variable="chair"/>
@@ -904,6 +937,7 @@
               </else-if>
             </choose>
             <text macro="title"/>
+            <!-- AA: live performance: "The Woods by Robert Alan Evans" -->
             <choose>
               <if type="motion_picture">
                 <names variable="playwright">
@@ -2114,9 +2148,10 @@
                 <label form="verb-short" suffix=" "/>
                 <name initialize="false"/>
               </names>
+              <!-- AA: live-performance creatives in notes: "choreo. by Matthew Bourne, set by Lez Brotherston" -->
               <names variable="choreographer">
-                    <label form="verb-short" suffix=" "/>
-                    <name initialize="false"/>
+                <label form="verb-short" suffix=" "/>
+                <name initialize="false"/>
               </names>
               <choose>
                 <if type="motion_picture">
@@ -2622,6 +2657,7 @@
         <label form="verb-short" suffix=" "/>
         <name initialize="false"/>
       </names>
+      <!-- AA: live-performance creatives in notes: "choreo. by Matthew Bourne, set by Lez Brotherston" -->
       <names variable="choreographer">
         <label form="verb-short" suffix=" "/>
         <name initialize="false"/>
@@ -3519,6 +3555,7 @@
             <text macro="source-locator-subsequent"/>
           </if>
           <else>
+            <!-- AA: live performance names its creatives after the title, so there is no author first in notes -->
             <choose>
               <if match="none" type="motion_picture">
                 <text macro="author-note"/>
@@ -3531,6 +3568,8 @@
     </layout>
   </citation>
   <!-- Bibliography -->
+  <!-- AA: bibliography entry for live performance, following `author-bib`:
+       "Romeo and Juliet, dance, Lez Brotherston (set), Paule Constable (ld.) (New Adventures and Sadler's Wells, ...)" -->
   <macro name="title-and-source-motion-picture-bib">
     <group delimiter=" ">
       <group delimiter=", ">
@@ -3562,6 +3601,7 @@
     <group delimiter=". ">
       <group delimiter=", ">
         <text macro="author-bib"/>
+        <!-- AA: live performance uses its own title-and-source macro -->
         <choose>
           <if type="motion_picture">
             <text macro="title-and-source-motion-picture-bib"/>
