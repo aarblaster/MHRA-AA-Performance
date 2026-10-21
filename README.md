@@ -42,25 +42,32 @@ see [Dance](#dance).
 ## Theatre
 
 So for the production:
-Title: The Woods
-Playwright: Robert Allen-Evens
-Director: Lucy Morrison
-Set Designer: Naomi Dawson
-Lighting Designer: Anthony Arblaster
-Producer: Royal Court Theatre
-Venue: Jerwood Theatre Upstairs, London
-First Performance: 2018
-Type: play
+- Title: The Woods
+- Playwright: Robert Allen-Evens
+- Director: Lucy Morrison
+- Set Designer: Naomi Dawson
+- Lighting Designer: Anthony Arblaster
+- Producer: Royal Court Theatre
+- Venue: Jerwood Theatre Upstairs, London
+- First Performance: 2018
+- Type: play
 
 It maps the following fields
-Director -> `director`
-Playwright -> `playwright` **New**
-Set Designer -> `set-design` **New**
-Lighting Designer -> `lighting-design` **New**
-Producer -> `distributor`
-Type -> `genre`
-Location -> `location`
-Date -> `date`
+- Director -> `director`
+- Playwright -> `playwright` **New**
+- Set Designer -> `set-design` **New**
+- Lighting Designer -> `lighting-design` **New**
+- Producer -> `distributor`
+- Type -> `genre`
+- Location -> `location`
+- Date -> `date`
+
+The `extra` field for this record reads:
+```
+playwright: Robert Alan Evens
+set-design: Naomi Dawson
+lighting-design: Anthony Arblaster
+```
 
 This show would ouput as:
 **Bibliography**
@@ -85,25 +92,25 @@ If `choreographer-inverted:` is missing, the bibliography falls back to the
 forename-first name (Matthew Bourne (choreo.)).
 
 For example:
-Show: Romeo and Juliet
-Genre: Dance
-Choreographer: Matthew Bourne
-Set Design: Lez Brotherston
-Lighting Design: Paule Constable 
-Producers: New Adventures and Sadler's Wells
-Venue: Sadler's Wells Theatre
-City: London
-First Performance: 2019
+- Show: Romeo and Juliet
+- Genre: Dance
+- Choreographer: Matthew Bourne
+- Set Design: Lez Brotherston
+- Lighting Design: Paule Constable 
+- Producers: New Adventures and Sadler's Wells
+- Venue: Sadler's Wells Theatre
+- City: London
+- First Performance: 2019
 
 This show will map to the following fields:
-show --> `title`
-genre --> `genre`
-choreographer --> `choreographer:` and `choreographer-inverted:` **New in extra**
-Set Designer --> `set-design` **New in extra**
-Lighting Designer --> `lighting-design` **New in extra**
-Producer -> `distributor`
-Venue and city --> `location`
-first performance --> `date`
+- show --> `title`
+- genre --> `genre`
+- choreographer --> `choreographer:` and `choreographer-inverted:` **New in extra**
+- Set Designer --> `set-design` **New in extra**
+- Lighting Designer --> `lighting-design` **New in extra**
+- Producer -> `distributor`
+- Venue and city --> `location`
+- first performance --> `date`
 
 
 The 'extra' field for this record reads:
