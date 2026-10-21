@@ -1,18 +1,23 @@
 # MHRA-AA-Performance
+![GitHub License](https://img.shields.io/github/license/aarblaster/MHRA-AA-Performance)
+![Gitea Last Commit](https://img.shields.io/gitea/last-commit/aarblaster/MHRA-AA-Performance)
+
+
 
 This is a modified version of the MHARA 4th Ed. CSL.
-It is modified in the following way: It changes the 'film' category 
-for citing live performance. 
-It priorities dis-ambiguation in live performance by naming key 
-creative participants.
+It is modified in the following way: 
+- It changes the 'film' category for citing live performance. 
+- It priorities dis-ambiguation in live performance by naming key creative participants.
+- It uses industry standard abreviations where possible (ld, dir, choreo)
 
-## Credit and licence
+## Author
 This style is based on
 [MHRA Style Guide 4th edition (notes)](https://github.com/citation-style-language/styles/blob/master/mhra-notes.csl)
-by Andrew Dunning, from the [Citation Style Language](https://citationstyles.org) project.
+by [Andrew Dunning](https://github.com/adunning), from the [Citation Style Language](https://citationstyles.org) project.
 
-Like the original, it is licensed under
-[CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). See `LICENSE`.
+## Testing
+This CSL style is only tested using [Zotero](https://zotero.org), and should be tested
+before use in other citation tools.
 
 ## Usage
 To use this CSL in Zotero, make sure that fields are entered in the
@@ -81,21 +86,21 @@ forename-first name (Matthew Bourne (choreo.)).
 
 For example:
 Show: Romeo and Juliet
-genre: dance
+Genre: Dance
 Choreographer: Matthew Bourne
-set design: Lez Brotherston
-lighting design: Paule Constable 
-producers: New Adventures and Sadler’s Wells
-Venue: Sadler’s Wells Theatre
+Set Design: Lez Brotherston
+Lighting Design: Paule Constable 
+Producers: New Adventures and Sadler's Wells
+Venue: Sadler's Wells Theatre
 City: London
-first performance: 2019
+First Performance: 2019
 
 This show will map to the following fields:
 show --> `title`
 genre --> `genre`
-Choreographer --> `choreographer:` and `choreographer-inverted:` **New in extra**
-Set Designer --> `set-design` **New**
-Lighting Designer --> `lighting-design` **New**
+choreographer --> `choreographer:` and `choreographer-inverted:` **New in extra**
+Set Designer --> `set-design` **New in extra**
+Lighting Designer --> `lighting-design` **New in extra**
 Producer -> `distributor`
 Venue and city --> `location`
 first performance --> `date`
@@ -118,12 +123,12 @@ Romeo and Juliet, dance, choreo. by Matthew Bourne, set by Lez Brotherston, ld. 
 
 ## Opera
 For Opera, simply imput all fields as if a play or muiscal, but avoid including a choreographer
-as this will be included in the place of director.
+as this will be included in the place of director. 
+
 For the composer enter as additional text of `playwright:`.
 (`composer` is a standard CSL field, so filling it in would put the composer first,
 in place of the director.)
 
 ## Licence
-The original MHRA CSL style by Andrew Dunning is licensed under
-[CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/), so this adaptation
-is too. See [LICENSE](LICENSE).
+The original MHRA CSL style by [@adunning](https://github.com/adunning) and this adaptation 
+is licensed under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). See [LICENSE](LICENSE).
