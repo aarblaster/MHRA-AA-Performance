@@ -1,6 +1,6 @@
 # MHRA-AA-Performance
-![GitHub License](https://img.shields.io/github/license/aarblaster/MHRA-AA-Performance)
-![Gitea Last Commit](https://img.shields.io/gitea/last-commit/aarblaster/MHRA-AA-Performance)
+![Static Badge](https://img.shields.io/badge/licence-CC%20BY%20SA-red)
+![GitHub last commit](https://img.shields.io/github/last-commit/aarblaster/MHRA-AA-Performance)
 
 
 
