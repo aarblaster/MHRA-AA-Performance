@@ -1,5 +1,5 @@
 # MHRA-AA-Performance
-![Static Badge](https://img.shields.io/badge/licence-CC%20BY%20SA-red)
+![Static Badge](https://img.shields.io/badge/license-CC%20BY--NC%204.0-red)
 ![GitHub last commit](https://img.shields.io/github/last-commit/aarblaster/MHRA-AA-Performance)
 
 
