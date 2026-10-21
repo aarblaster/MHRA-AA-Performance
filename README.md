@@ -70,11 +70,14 @@ lighting-design: Anthony Arblaster
 ```
 
 This show would ouput as:
+
 **Bibliography**
+
 Morrison, Lucy (dir.), The Woods by Robert Allen-Evans, play, Naomie Dawson (set), Anthony Arblaster (ld.) (Royal Court Theatre, Jerwood Theatre Upstairs, London, 2018)
 
 
 **Notes**
+
 The Woods by Robert Allen-Evans, play, dir. by Lucy Morrison, set by Naomie Dawson, ld. by Anthony Arblaster (Royal Court Theatre, Jerwood Theatre Upstairs, London, 2018).
 
 ## Dance
@@ -122,10 +125,12 @@ lighting-design: Paule Constable
 ```
 
 **Bibliography**
+
 Bourne, Matthew (choreo.), Romeo and Juliet, dance, Lez Brotherston (set), Paule Constable (ld.) (New Adventures and Sadler’s Wells, Sadler’s Wells Theatre, London, 2019)
 
 
 **Note**
+
 Romeo and Juliet, dance, choreo. by Matthew Bourne, set by Lez Brotherston, ld. by Paule Constable (New Adventures and Sadler’s Wells, Sadler’s Wells Theatre, London, 2019).
 
 ## Opera
