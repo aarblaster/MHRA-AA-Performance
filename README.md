@@ -4,7 +4,7 @@
 
 
 
-This is a modified version of the MHARA 4th Ed. CSL.
+This is a modified version of the MHARA 4th Ed. CSL style. 
 It is modified in the following way: 
 - It changes the 'film' category for citing live performance. 
 - It priorities dis-ambiguation in live performance by naming key creative participants.
@@ -19,9 +19,14 @@ by [Andrew Dunning](https://github.com/adunning), from the [Citation Style Langu
 This CSL style is only tested using [Zotero](https://zotero.org), and should be tested
 before use in other citation tools.
 
+## Installation
+Installation is nice and straightforward. Simply download the CSL file!
+Once downloaded follow the instructions from your citation manager to use it. 
+I recommend [Zotero](https://www.zotero.org/). It’s free, open source and excellent.
+
 ## Usage
 To use this CSL in Zotero, make sure that fields are entered in the
-'extra' field for your records.
+'extra' field for your items.
 
 The full new field list is:
 ```
@@ -33,7 +38,7 @@ choreographer-inverted:
 conductor:
 ```
 
-Enter each one on its own line at the top of 'extra', as `field: value`.
+Enter each one on its own line in the 'extra' field, as `field: value`.
 Names in these fields are printed exactly as you type them; Zotero cannot
 reverse them (the `Surname || Forename` syntax only works for standard CSL
 name fields such as `director`). That is why the choreographer has two fields:
