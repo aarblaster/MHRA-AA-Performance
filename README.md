@@ -1,7 +1,7 @@
 # MHRA-AA-Performance
 ![Static Badge](https://img.shields.io/badge/license-CC%20BY--NC%204.0-red)
 ![GitHub last commit](https://img.shields.io/github/last-commit/aarblaster/MHRA-AA-Performance)
-
+![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23639323.svg)
 
 
 This is a modified version of the MHARA 4th Ed. CSL style. 
